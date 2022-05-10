@@ -24,7 +24,7 @@
 <script lang="ts">
 import { Vue } from "vue-class-component";
 import { Prop } from "vue-property-decorator";
-import { ITask } from "./models/ITask";
+import { ITask } from "@/models/ITask";
 
 export default class List extends Vue {
   @Prop() theObj!: ITask;
