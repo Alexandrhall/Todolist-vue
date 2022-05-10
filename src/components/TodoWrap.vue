@@ -1,6 +1,5 @@
 <template>
-  <div class="header">
-    <h1>Todo</h1>
+  <div>
     <form @submit.prevent="handleClick">
       <input type="text" v-model="addText" />
       <button>Add</button>
@@ -17,8 +16,8 @@
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
-import { ITask } from "@/components/models/ITask";
-import { ListObject } from "./models/ListObject";
+import { ITask } from "@/models/ITask";
+import { ListObject } from "@/models/ListObject";
 import { Prop } from "vue-property-decorator";
 import List from "@/components/List.vue";
 
@@ -55,12 +54,4 @@ export default class Header extends Vue {
 }
 </script>
 
-<style lang="scss" scoped>
-.header {
-  background-color: black;
-  height: 150px;
-  width: 70vw;
-  margin: 0 auto;
-  border: 1px solid darkorange;
-}
-</style>
+<style lang="scss" scoped></style>

@@ -47,4 +47,7 @@ li {
   width: 180px;
   margin: 0 auto;
 }
+p {
+  cursor: pointer;
+}
 </style>

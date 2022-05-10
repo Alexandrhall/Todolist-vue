@@ -1,10 +1,11 @@
 <template>
+  <Header />
   <TodoWrap />
 </template>
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
-import Header from "@/components/TodoWrap.vue";
+import Header from "@/components/Header.vue";
 import List from "./components/List.vue";
 import TodoWrap from "@/components/TodoWrap.vue";
 
@@ -12,6 +13,7 @@ import TodoWrap from "@/components/TodoWrap.vue";
   components: {
     TodoWrap,
     List,
+    Header,
   },
 })
 export default class App extends Vue {}
