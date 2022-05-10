@@ -1,16 +1,16 @@
 <template>
-  <Header />
-  <List />
+  <TodoWrap />
 </template>
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
-import Header from "@/components/Header.vue";
+import Header from "@/components/TodoWrap.vue";
 import List from "./components/List.vue";
+import TodoWrap from "@/components/TodoWrap.vue";
 
 @Options({
   components: {
-    Header,
+    TodoWrap,
     List,
   },
 })
