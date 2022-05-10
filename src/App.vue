@@ -1,14 +1,17 @@
 <template>
   <Header />
+  <List />
 </template>
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
 import Header from "@/components/Header.vue";
+import List from "./components/List.vue";
 
 @Options({
   components: {
     Header,
+    List,
   },
 })
 export default class App extends Vue {}
