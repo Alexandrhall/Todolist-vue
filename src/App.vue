@@ -29,9 +29,12 @@ export default class App extends Vue {}
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: darkorange;
-  margin-top: 60px;
+  background-color: rgba(169, 169, 169, 0.4);
+  width: 80vw;
+  margin: 0 auto;
+  border-radius: 10px;
 }
 html {
-  background-color: black;
+  background-color: rgb(14, 14, 14);
 }
 </style>

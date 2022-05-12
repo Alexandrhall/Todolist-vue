@@ -1,24 +1,22 @@
 <template>
-  <ul>
-    <li
+  <li :class="theObj.done">
+    <span
       @click="
         () => {
           handleUpdate();
         }
       "
+      >{{ theObj.title }}</span
     >
-      {{ theObj.title }}, {{ theObj.done }}
-    </li>
-    <p
+    <span
       @click="
         () => {
           handleDelete();
         }
       "
+      >X</span
     >
-      X
-    </p>
-  </ul>
+  </li>
 </template>
 
 <script lang="ts">
@@ -28,14 +26,15 @@ import { ITask } from "@/models/ITask";
 
 export default class List extends Vue {
   @Prop() theObj!: ITask;
+  styleClass = "";
 
   handleUpdate() {
-    // task.done = !task.done;
+    this.styleClass = this.theObj.done.toString();
     this.$emit("changeObj", this.theObj);
   }
 
   handleDelete() {
-    this.$emit("deleteObj", this.theObj.title);
+    this.$emit("deleteObj", this.theObj.id);
   }
 }
 </script>
@@ -44,10 +43,15 @@ export default class List extends Vue {
 li {
   cursor: pointer;
   list-style: none;
-  width: 180px;
   margin: 0 auto;
 }
-p {
-  cursor: pointer;
+.true {
+  text-align: right;
+  text-decoration: line-through;
+}
+.false {
+  text-align: left;
+  display: flex;
+  flex-direction: row;
 }
 </style>
