@@ -12,5 +12,6 @@ export default class Footer extends Vue {}
 .footer {
   width: 70vw;
   margin: 0 auto;
+  padding-top: 300px;
 }
 </style>

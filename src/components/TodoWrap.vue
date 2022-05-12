@@ -1,19 +1,19 @@
 <template>
-  <div>
+  <div class="main">
     <form @submit.prevent="handleClick">
       <input type="text" v-model="addText" />
       <button>Add</button>
     </form>
+    <ul>
+      <List
+        v-for="task in taskList"
+        :key="task.title"
+        :theObj="task"
+        @changeObj="updateObject($event)"
+        @deleteObj="deleteObject($event)"
+      />
+    </ul>
   </div>
-  <ul>
-    <List
-      v-for="task in taskList"
-      :key="task.title"
-      :theObj="task"
-      @changeObj="updateObject($event)"
-      @deleteObj="deleteObject($event)"
-    />
-  </ul>
 </template>
 
 <script lang="ts">
@@ -36,13 +36,13 @@ export default class Header extends Vue {
   mounted() {
     const data = localStorage.getItem("TheList");
     if (data) {
-      const newList = JSON.parse(data) as ITask[];
-      this.taskList = newList;
+      this.taskList = JSON.parse(data) as ITask[];
     }
   }
 
   handleClick() {
     const newTask = new ListObject(this.addText);
+    // console.log(newTask);
 
     this.taskList.push(newTask);
     localStorage.setItem("TheList", JSON.stringify(this.taskList));
@@ -57,7 +57,6 @@ export default class Header extends Vue {
       }
     });
     localStorage.setItem("TheList", JSON.stringify(this.taskList));
-    // console.log(this.taskList);
   }
 
   deleteObject(id: number) {

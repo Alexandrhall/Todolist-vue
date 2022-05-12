@@ -1,6 +1,4 @@
 export class ListObject {
-  static count = 0;
-
   title: string;
   done: boolean;
   id: number;
@@ -8,6 +6,6 @@ export class ListObject {
   constructor(task: string) {
     this.title = task;
     this.done = false;
-    this.id = ++ListObject.count;
+    this.id = Math.floor(Math.random() * 1000000);
   }
 }

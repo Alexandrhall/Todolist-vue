@@ -1,5 +1,5 @@
 <template>
-  <li :class="theObj.done">
+  <li :class="theObj.done ? 'true' : 'false'">
     <span
       @click="
         () => {
@@ -44,14 +44,20 @@ li {
   cursor: pointer;
   list-style: none;
   margin: 0 auto;
+  font-size: 30px;
+  column-gap: 10px;
 }
 .true {
   text-align: right;
   text-decoration: line-through;
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
 }
 .false {
   text-align: left;
   display: flex;
   flex-direction: row;
+  row-gap: 10px;
 }
 </style>

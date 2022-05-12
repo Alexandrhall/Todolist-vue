@@ -1,12 +1,13 @@
 <template>
   <div class="header">
-    <h1>Todo</h1>
+    <h1>Todo List</h1>
   </div>
 </template>
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
 import TodoWrap from "@/components/TodoWrap.vue";
+import { ListObject } from "@/models/ListObject";
 
 @Options({
   components: {
@@ -22,5 +23,7 @@ export default class Header extends Vue {}
   width: 70vw;
   margin: 0 auto;
   border-radius: 10px;
+  margin-top: 100px;
+  padding-top: 15px;
 }
 </style>
