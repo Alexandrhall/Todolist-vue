@@ -42,7 +42,6 @@ export default class Header extends Vue {
 
   handleClick() {
     const newTask = new ListObject(this.addText);
-    // console.log(newTask);
 
     this.taskList.push(newTask);
     localStorage.setItem("TheList", JSON.stringify(this.taskList));
@@ -75,5 +74,10 @@ ul {
   margin: 0 auto;
   padding-left: 150px;
   padding-right: 150px;
+}
+form {
+  input {
+    background-color: darkorange;
+  }
 }
 </style>
