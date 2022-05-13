@@ -14,6 +14,7 @@ import TodoWrap from "@/components/TodoWrap.vue";
 import { ListObject } from "@/models/ListObject";
 
 @Options({
+  emits: ["addTask"],
   components: {
     TodoWrap,
   },
@@ -39,6 +40,7 @@ export default class Header extends Vue {
 <style lang="scss" scoped>
 .header {
   width: 70vw;
+  min-width: 480px;
   border-radius: 10px;
   margin-top: 100px;
   padding-top: 15px;
@@ -84,6 +86,11 @@ export default class Header extends Vue {
       color: black;
       transition: 0.2s all ease;
     }
+  }
+}
+@media screen and (max-width: 640px) {
+  .header #inputForm {
+    justify-content: center;
   }
 }
 </style>

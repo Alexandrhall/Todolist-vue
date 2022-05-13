@@ -30,6 +30,8 @@ export default class App extends Vue {}
   font-size: 12pt;
   display: flex;
   flex-direction: column;
+  min-width: 480px;
+  justify-content: center;
 }
 html {
   background-color: rgba(0, 0, 0, 0.904);

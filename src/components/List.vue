@@ -53,6 +53,7 @@ li {
   width: 30%;
   align-items: center;
   padding: 2px;
+  min-width: 155px;
 }
 li:hover {
   background-color: wheat;
