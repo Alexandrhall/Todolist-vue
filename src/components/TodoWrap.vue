@@ -42,11 +42,18 @@ import Header from "@/components/Header.vue";
 export default class TodoWrap extends Vue {
   addText = "";
   taskList: ITask[] = [];
-
   mounted() {
     const data = localStorage.getItem("TheList");
     if (data) {
       this.taskList = JSON.parse(data) as ITask[];
+    }
+
+    if (this.taskList.length === 0) {
+      const taksOne = new ListObject("Koda");
+      const taksTwo = new ListObject("Laga mat");
+      const taksThree = new ListObject("Sova");
+
+      this.taskList.unshift(taksOne, taksTwo, taksThree);
     }
   }
 
