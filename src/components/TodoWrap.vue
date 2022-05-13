@@ -1,9 +1,7 @@
 <template>
-  <div class="main">
-    <form @submit.prevent="handleClick">
-      <input type="text" v-model="addText" />
-      <button>Add</button>
-    </form>
+  <Header @addTask="handleClick($event)" />
+  <main class="main">
+    <h2>Tasks</h2>
     <ul>
       <List
         v-for="task in taskList"
@@ -13,15 +11,15 @@
         @deleteObj="deleteObject($event)"
       />
     </ul>
-  </div>
+  </main>
 </template>
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
 import { ITask } from "@/models/ITask";
 import { ListObject } from "@/models/ListObject";
-import { Prop } from "vue-property-decorator";
 import List from "@/components/List.vue";
+import Header from "@/components/Header.vue";
 
 @Options({
   components: {
@@ -29,7 +27,7 @@ import List from "@/components/List.vue";
     List,
   },
 })
-export default class Header extends Vue {
+export default class TodoWrap extends Vue {
   addText = "";
   taskList: ITask[] = [];
 
@@ -40,18 +38,15 @@ export default class Header extends Vue {
     }
   }
 
-  handleClick() {
-    const newTask = new ListObject(this.addText);
-
-    this.taskList.push(newTask);
+  handleClick(newTask: ListObject) {
+    this.taskList.unshift(newTask);
     localStorage.setItem("TheList", JSON.stringify(this.taskList));
-    this.addText = "";
   }
 
   updateObject(task: ITask) {
     task.done = !task.done;
     this.taskList.map((obj) => {
-      if (obj.title === task.title) {
+      if (obj.id === task.id) {
         return (obj.done = task.done);
       }
     });
@@ -66,18 +61,18 @@ export default class Header extends Vue {
 </script>
 
 <style lang="scss" scoped>
-div {
-  width: 70vw;
-  margin: 0 auto;
+main {
+  background-color: rgba(169, 169, 169, 0.2);
+  border-radius: 10px 10px 0px 0px;
 }
 ul {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
   margin: 0 auto;
   padding-left: 150px;
   padding-right: 150px;
-}
-form {
-  input {
-    background-color: darkorange;
-  }
+  padding-top: 10px;
+  margin-top: 20px;
 }
 </style>
