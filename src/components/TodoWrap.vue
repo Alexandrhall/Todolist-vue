@@ -11,8 +11,8 @@
         New-Old
       </button>
     </div>
-    <h2>Tasks</h2>
     <div>
+      <h2>Tasks</h2>
       <ul>
         <List
           v-for="task in taskList"
