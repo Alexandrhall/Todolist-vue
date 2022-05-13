@@ -82,6 +82,7 @@ export default class TodoWrap extends Vue {
       }
       return 0;
     });
+    localStorage.setItem("TheList", JSON.stringify(this.taskList));
   }
 
   sortDate() {
@@ -96,6 +97,7 @@ export default class TodoWrap extends Vue {
       }
       return 0;
     });
+    localStorage.setItem("TheList", JSON.stringify(this.taskList));
   }
 }
 </script>
