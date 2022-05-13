@@ -2,10 +2,10 @@ export class ListObject {
   title: string;
   done: boolean;
   id: number;
-  date: string;
+  date: number;
 
   constructor(task: string) {
-    const date: string = new Date().toISOString();
+    const date: number = Date.now();
     this.title = task;
     this.done = false;
     this.id = Math.floor(Math.random() * 1000000);

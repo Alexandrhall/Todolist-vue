@@ -12,15 +12,17 @@
       </button>
     </div>
     <h2>Tasks</h2>
-    <ul>
-      <List
-        v-for="task in taskList"
-        :key="task.title"
-        :theObj="task"
-        @changeObj="updateObject($event)"
-        @deleteObj="deleteObject($event)"
-      />
-    </ul>
+    <div>
+      <ul>
+        <List
+          v-for="task in taskList"
+          :key="task.title"
+          :theObj="task"
+          @changeObj="updateObject($event)"
+          @deleteObj="deleteObject($event)"
+        />
+      </ul>
+    </div>
   </main>
 </template>
 
